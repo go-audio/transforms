@@ -8,9 +8,6 @@ func MonoDownmix(buf *audio.FloatBuffer) error {
 	if buf == nil || buf.Format == nil {
 		return audio.ErrInvalidBuffer
 	}
-	if buf.Format == nil {
-		return audio.ErrInvalidBuffer
-	}
 	nChans := buf.Format.NumChannels
 	if nChans < 2 {
 		return nil
