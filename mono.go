@@ -17,7 +17,7 @@ func MonoDownmix(buf *audio.FloatBuffer) error {
 	}
 	nChansF := float64(nChans)
 
-	frameCount := len(buf.Data) / buf.Format.NumChannels
+	frameCount := buf.NumFrames()
 	newData := make([]float64, frameCount)
 	for i := 0; i < frameCount; i++ {
 		newData[i] = 0
