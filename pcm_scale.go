@@ -28,7 +28,7 @@ func PCMScaleF32(buf *audio.Float32Buffer, bitDepth int) error {
 	if buf == nil || buf.Format == nil {
 		return audio.ErrInvalidBuffer
 	}
-	factor := float32(math.Pow(2, 8*float64(bitDepth/8)-1))
+	factor := float32(math.Pow(2, float64(bitDepth)-1)) - 1.0
 	for i := 0; i < len(buf.Data); i++ {
 		buf.Data[i] *= factor
 	}
